@@ -11,4 +11,31 @@
 <body>
   <app-root></app-root>
 </body>
+<script type="text/javascript">
+let text_block = document.getElementById('more_desc').parentElement.children[0];
+	let smoke_block = document.getElementById('more_desc').parentElement.children[0].children[0];
+	document.getElementById('more_desc').onclick = function(){
+		console.log(text_block);
+		text_block.style.height = (text_block.style.height == "24em") ? "12em" : "24em";
+		smoke_block.style.cssText = (text_block.style.height == "24em") ? "opacity: 0; height: 0;" : "opacity: 1; height: 4em;";
+	};
+	let slider = document.getElementById("slider_line");
+	let steps = document.getElementsByClassName('consp_img').length - 4;
+	let cur_pos = steps;
+	let margin = 0;
+	document.getElementById('l_btn').onclick = function(){
+		if(cur_pos != steps){
+			margin += 11.8;
+			slider.style.cssText = `margin-left: ${margin}em`;
+			cur_pos++;
+		}
+	};
+	document.getElementById('r_btn').onclick = function(){
+		if(cur_pos != 0){
+			margin -= 11.8;
+			slider.style.cssText = `margin-left: ${margin}em`;
+			cur_pos--;
+		}
+	};
+</script>
 </html>

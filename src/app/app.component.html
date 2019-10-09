@@ -1,3 +1,62 @@
 <app-header></app-header>
-{{title}}
-<router-outlet></router-outlet>
+<main class="main_block">
+			<div class="conspect_block">
+				<div class="consp_title">{{consp_info.title}}</div>
+				<div class="consp_info">
+					<div class="preview" [style.background-image]="safe_prev"></div>
+					<div class="buy">
+						<button class="buy_conspect"><span class="round_icon buy_icon"></span><span class="btn_text">Придбати</span><span class="price">{{consp_info.price}} грн.</span></button>
+					</div>
+					<div class="consp_size_block">
+						<div class="inner_cont">
+						<span class="round_icon size_icon"></span>
+						<span class="btn_text">Вага конспекта</span>
+						<span class="consp_size">{{consp_info.size}}</span>
+						</div>
+					</div>
+					<div class="rating_block">
+						<li>
+							<span class="round_icon rate_icon"></span>
+							<span class="btn_text">Оцінка</span>
+							<ul class="stars">
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</li>
+						<li class="rate_stat">
+							<b>{{consp_info.rate}}</b> середня на базі <b>{{consp_info.feedbacks}}</b> відгуків
+						</li>
+						<li>
+							<a href="" class="watch_feedback">Переглянути всі відгуки</a>
+						</li>
+					</div>
+					<div class="consp_bought">
+						<div class="inner_cont">
+							<span class="round_icon buy_icon right"></span>
+							<span class="btn_text">Усього придбань: </span><span class="bought_num">{{consp_info.bought}} шт.</span>
+						</div>
+					</div>
+					<div class="consp_images">
+						<div class="inner_cont">
+							<div class="slider_btn l" id="l_btn"><span class="round_icon arrow_d_icon"></span></div>
+							<div class="hide_img">
+								<div class="slider_line" id="slider_line">
+									<li *ngFor="let img of safe_images" class="consp_img" [style.background-image]="img"></li>
+								</div>
+							</div>
+							<div class="slider_btn r" id="r_btn"><span class="round_icon arrow_d_icon"></span></div>
+						</div>
+					</div>
+				</div>
+				<div class="consp_description">
+					<div class="desc_text">
+					<div class="smoke_block"></div>
+					<p [innerHTML]="description"></p>
+					</div>
+					<button class="more" id="more_desc"><div class="circle"><span class="round_icon arrow_d_icon"></span></div>Детальніше</button>
+				</div>
+			</div>
+	</main>
